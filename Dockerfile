@@ -21,7 +21,6 @@ RUN apk upgrade --no-cache && \
 
 RUN addgroup -S core-bank && adduser -S core-bank -G core-bank
 USER core-bank
-VOLUME /tmp
 ARG DEPENDENCY=/workspace/app/target/dependency
 COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
