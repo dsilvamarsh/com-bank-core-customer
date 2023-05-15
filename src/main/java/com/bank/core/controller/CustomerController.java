@@ -1,10 +1,13 @@
 package com.bank.core.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bank.core.bean.Customer;
+import com.bank.core.repository.CustomerRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,10 +15,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CustomerController {
 
+	
+	@Autowired
+	private CustomerRepository repo;
 	@GetMapping("/customer/{id}")
 	public Customer find(@PathVariable int id) {
 		log.debug("Inside customer controller");
-		return Customer.builder().id(1000).name("marsh").address("Canary wharf").build();
+	
+		return repo.findById(id).get();
 	}
 	
 }

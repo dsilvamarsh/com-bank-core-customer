@@ -1,6 +1,4 @@
-package com.bank.core.bean;
-
-import org.springframework.data.annotation.Id;
+package com.bank.core.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,10 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Customer {
-	@Id
-	public int id;
-	private String name;
-	private String address;
+
+public class Error {
+	private String code;
+	private String message;
 
 }
