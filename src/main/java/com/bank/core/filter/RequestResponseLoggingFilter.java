@@ -12,6 +12,7 @@ import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
@@ -26,13 +27,12 @@ public class RequestResponseLoggingFilter implements Filter {
 		
 		HttpServletRequest req= (HttpServletRequest) request;
 		HttpServletResponse res= (HttpServletResponse) response;
-	
+		
 		log.debug("Logging Request URI : {}  METHOD :{} ",req.getRequestURI(),req.getMethod());
 		
 		chain.doFilter(request, response);
 		
 		log.debug("Logging Response STATUS: {}  CONTENT TYPE: {} HEADERS : {}", res.getStatus(),res.getContentType(),res.getHeaderNames());
-		
 		
 		
 		
