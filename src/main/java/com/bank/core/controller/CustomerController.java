@@ -24,4 +24,9 @@ public class CustomerController {
 		return repo.findById(id).get();
 	}
 	
+	@GetMapping
+	public String findInCache() {
+		
+	}
+	
 }
